@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Citations</title>
+</head>
+<body>
+    <h1>Citations</h1>
+    <ul>
+        {% for item in citations %}
+        <li>
+            <p><strong>Response:</strong> {{ item.response }}</p>
+            <p><strong>Citations:</strong></p>
+            <ul>
+                {% for source in item.citations %}
+                <li>
+                    <p><strong>ID:</strong> {{ source.id }}</p>
+                    <p><strong>Context:</strong> {{ source.context }}</p>
+                    {% if source.link %}
+                    <p><strong>Link:</strong> <a href="{{ source.link }}">{{ source.link }}</a></p>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
